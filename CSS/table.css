@@ -1,0 +1,12 @@
+table {
+    border-collapse: collapse;
+    width: 85%;
+}
+
+td,
+th {
+    color: purple;
+    /*border: 2px solid #BA68C8;*/
+    text-align: left;
+    padding: 8px;
+}

@@ -1,0 +1,21 @@
+.home {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+    padding: 0px 300px;
+    text-align: center;
+    top: 50px;
+    margin: 10px auto;
+    width: fit-content;
+}
+
+#logo {
+    color: purple;
+    font-size: 4vw;
+    text-decoration: none;
+    margin: 0;
+}
+
+#subtitle {
+    color: plum;
+    font-size: 2vw;
+    margin-top: 5px;
+}

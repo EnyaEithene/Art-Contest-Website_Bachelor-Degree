@@ -1,0 +1,23 @@
+@import url("rating.css");
+
+.competition {
+  display: flex;
+  padding: 15px 20px;
+  border-radius: 5px;
+  border: 2px solid #ba68c8;
+  text-align: left;
+  margin: 30px auto;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.competition #object {
+  flex: 1;
+  padding: 1vw 6vw;
+  margin: 10px;
+  font-size: 2vw;
+  text-align: left;
+
+  color: purple;
+  background-color: white;
+}

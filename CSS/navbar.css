@@ -1,0 +1,85 @@
+/* Bara de navigare */
+.navbar {
+    height: 50px;
+    width: 100%;
+    background: #b0e8df;
+
+    color: #24337d;
+    font-size: 30px;
+
+    margin-bottom: 1.8rem;
+    margin-top: 0;
+    order: -1;
+}
+
+.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.nav-item {
+    position: relative;
+    border: 2px solid #b0e8df;
+    border-radius: 5px;
+}
+
+.nav-item:hover {
+    background-color: #90CAF9;
+    border-color: #90CAF9;
+}
+
+img#profile {
+    height: 1.75vw;
+    width: 1.75vw;
+}
+
+/* Bara de navigare - meniu dropdown cont */
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    position: absolute;
+    width: auto;
+    z-index: 2;
+    background: #90CAF9;
+
+    list-style-type: none;
+    display: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 0;
+    left: 50%;
+    border: 2px solid #90CAF9;
+    /*border-top: none;*/
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    transform: translateX(-50%);
+    transition: opacity .15s ease-out;
+}
+
+.dropdown-item {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-item a {
+    display: block;
+}
+
+.dropdown-item a:hover {
+    background-color: #6e96db;
+    color: #000;
+}
+
+.dropdown-item a#logout:hover {
+    background-color: #F48FB1;
+    color: #AD1457;
+}

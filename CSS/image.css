@@ -1,0 +1,30 @@
+img {
+  max-width: 40%;
+  height: auto;
+}
+
+img.gallery {
+  all: unset;
+  width: 900px;
+  height: auto;
+  border: 5px solid white;
+  border-radius: 5px;
+}
+
+#center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#left {
+  height: auto;
+  object-fit: cover;
+  margin-left: 20px;
+}
+
+#right {
+  height: auto;
+  object-fit: cover;
+  margin-right: 20px;
+}

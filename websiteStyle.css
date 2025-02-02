@@ -1,0 +1,47 @@
+/* Footer */
+@import url("CSS/footer.css");
+
+/* Bara de navigare */
+@import url("CSS/navbar.css");
+
+/* Bara de navigare laterala */
+@import url("CSS/sidenav.css");
+
+/* Imagini */
+@import url("CSS/image.css");
+
+/* Logo */
+@import url("CSS/logo.css");
+
+/* Continut pagina */
+@import url("CSS/content.css");
+
+/* Tabele */
+@import url("CSS/table.css");
+
+/* Butoane */
+@import url("CSS/button.css");
+
+/* Formulare */
+@import url("CSS/form.css");
+
+/* Pentru competitii */
+@import url("CSS/competition.css");
+
+/* Setari generale pagina */
+html,
+body {
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #ba68c8;
+  min-height: 100%;
+}

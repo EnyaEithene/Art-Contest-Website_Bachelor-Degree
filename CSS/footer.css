@@ -1,0 +1,19 @@
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  text-align: center;
+
+  background: #b0e8df;
+  color: #24337d;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100%;
+}
+
+#content-wrap {
+  padding-bottom: 2rem;
+}

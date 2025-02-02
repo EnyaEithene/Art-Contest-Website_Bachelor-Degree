@@ -1,0 +1,53 @@
+/* Continut pagina */
+.main {
+  margin-left: 200px;
+  padding: 0px 10px;
+}
+
+/* Texte */
+p {
+  font-size: 20px;
+  margin: 10;
+  padding: 10;
+  text-align: center;
+}
+
+/* Link-uri */
+a {
+  all: unset;
+  text-decoration: none;
+}
+
+#link {
+  all: unset;
+  text-decoration: underline;
+  color: rgb(63, 149, 152);
+}
+
+/* Texte cu imagini */
+#row {
+  display: flex;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 1) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  padding: 30px 50px;
+  text-align: center;
+  margin: 30px auto;
+  width: 90%;
+  justify-content: space-between;
+}
+
+#column {
+  flex: 1;
+  padding: 1vw 5vw;
+  margin: 10px;
+  font-size: 2vw;
+  text-align: left;
+
+  color: purple;
+}

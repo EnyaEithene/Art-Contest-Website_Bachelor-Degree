@@ -1,0 +1,65 @@
+button {
+    text-decoration: none;
+
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: center;
+
+    padding: 15px 20px;
+    width: auto;
+    border-radius: 5px;
+    border: 2px solid;
+
+    cursor: pointer;
+    display: inline-block;
+}
+
+button.small {
+    margin: 10px;
+    padding: 10px 10px;
+    width: auto;
+    border-radius: 5px;
+    border: 2px solid;
+}
+
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+    transition: all 0.2s;
+}
+
+button#purple {
+    border-color: rebeccapurple;
+    color: rebeccapurple;
+    background-color: plum;
+}
+
+button#gray {
+    border-color: black;
+    color: black;
+    background-color: gainsboro;
+}
+
+button#login {
+    border: none;
+    color: white;
+    background-color: #6a5acd;
+}
+
+button#logout.small {
+    border-color: #AD1457;
+    color: #AD1457;
+    background-color: #F48FB1;
+}
+
+button#edit.small {
+    border-color: rebeccapurple;
+    color: rebeccapurple;
+    background-color: plum;
+}
+
+button#upload.small {
+    border-color: rebeccapurple;
+    color: rebeccapurple;
+    background-color: plum;
+}
