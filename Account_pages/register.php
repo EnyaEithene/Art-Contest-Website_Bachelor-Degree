@@ -35,7 +35,7 @@
 
 
 	// Instructiuni pentru incarcarea datelor in tabelul "conturi"
-	$query = "insert into conturi(nume, prenume, email, telefon, password) values 
+	$query = "insert into conturi(nume, prenume, email, telefon, parola) values 
             ('" . $nume . "', '" . $prenume . "', '" . $email . "', '" . $tel . "', '" . $pass . "');";
 
 

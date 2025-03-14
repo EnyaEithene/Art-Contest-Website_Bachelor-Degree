@@ -36,7 +36,7 @@ session_start();
                                 </div>';
 
                 echo '<div class="form-group">
-                                    <label for="autor">Email</label><br>
+                                    <label for="email">Email</label><br>
                                     <input type="text" name="email" value="' . $_SESSION['email'] . '">
                                 </div>';
 

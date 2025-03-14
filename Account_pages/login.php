@@ -32,7 +32,7 @@
 
 	$check_select = $db->query("select nume, prenume, email, telefon, rol_competitie
 									from conturi 
-									where email='" . $email . "' and password='" . $pass . "'");
+									where email='" . $email . "' and parola='" . $pass . "'");
 
 	if (mysqli_num_rows($check_select) > 0) {
 
