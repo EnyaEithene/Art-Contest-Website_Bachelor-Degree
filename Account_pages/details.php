@@ -25,27 +25,26 @@ session_start();
 				</div>
 				<table>
 					<tr>
-						<th> Nume </th>
-						<td> <?php echo $_SESSION['nume'] ?> </td>
-					</tr>
-					<tr>
-						<th> Prenume </th>
+						<th> First Name </th>
 						<td> <?php echo $_SESSION['prenume'] ?> </td>
 					</tr>
 					<tr>
-						<th> Email </th>
+						<th> Last Name </th>
+						<td> <?php echo $_SESSION['nume'] ?> </td>
+					</tr>
+					<tr>
+						<th> E-mail </th>
 						<td> <?php echo $_SESSION['email'] ?> </td>
 					</tr>
 					<tr>
-						<th> Telefon </th>
+						<th> Phone number </th>
 						<td> <?php echo $_SESSION['tel'] ?> </td>
 					</tr>
 				</table>
 				<button class="small" id="edit" onclick="location.href='details_edit.php'" type="button"> Edit </button>
 
 				<div>
-					<button id="logout" class="small" onclick="location.href='logout.php'" type="button"> Logout
-					</button>
+					<button id="logout" class="small" onclick="location.href='logout.php'" type="button"> Logout </button>
 				</div>
 			</div>
 		</div>

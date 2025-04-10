@@ -24,19 +24,21 @@ include("../PHP_Scripts/db_connect.php"); ?>
 				</div>
 
 				<fieldset>
-					<legend>Incarcare arta</legend>
+					<legend>Upload art</legend>
 					<form action="upload.php" method="post" enctype="multipart/form-data">
 						<input type="file" name="fisier" id="fisier">
 						<button id="upload" class="small" type="submit"> Upload </button>
 					</form>
 				</fieldset> <br>
 
+				<!--
 				<fieldset>
 					<legend> Aranjare galerie</legend>
 					<form action="gallery_edit.php" method="post">
 
 					</form>
 				</fieldset>
+				-->
 
 				<div>
 					<h1> Uploaded images </h1>
@@ -54,7 +56,7 @@ include("../PHP_Scripts/db_connect.php"); ?>
 								</a><br><br>';
 						}
 					} else {
-						echo '<div> Nu ati incarcat pana acum imagini. </div>';
+						echo "<div> You haven't uploaded any images yet </div>";
 					}
 					?>
 				</div>

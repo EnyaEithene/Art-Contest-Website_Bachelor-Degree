@@ -23,7 +23,7 @@
 					</div>
 					
 					<div>
-						Aici vor fi afisate competitiile la care a participat sau la care participa utilizatorul.
+						Here you'll see at what competitions you signed up.
 					</div>
 				
 				</div>
