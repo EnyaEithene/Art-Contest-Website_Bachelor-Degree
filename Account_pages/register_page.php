@@ -7,8 +7,6 @@
 </head>
 
 <body>
-	<div class="page-container">
-		<div class="content-wrap">
 			<!-- elemente comune -->
 			<?php include('../Elem_site/menu.php'); ?>
 
@@ -24,14 +22,14 @@
 					<form action="register.php" method="POST">
 
 						<div class="form-group">
-							<label for="nume"> Nume </label>
-							<input type="text" name="nume">
+							<label for="prenume"> First Name </label>
+							<input type="text" name="prenume">
 							<span class="error">*</span>
 						</div>
 
 						<div class="form-group">
-							<label for="prenume"> Prenume </label>
-							<input type="text" name="prenume">
+							<label for="nume"> Last Name </label>
+							<input type="text" name="nume">
 							<span class="error">*</span>
 						</div>
 
@@ -42,31 +40,29 @@
 						</div>
 
 						<div class="form-group">
-							<label for="tel"> Telefon </label>
+							<label for="tel"> Phone Number </label>
 							<input type="text" name="tel">
 							<span class="error"> </span>
 						</div>
 
 						<div class="form-group">
-							<label for="pass"> Parola </label>
+							<label for="pass"> Password </label>
 							<input type="text" name="pass">
 							<span class="error">*</span>
 						</div>
 
 						<div class="form-group">
-							<label for="confirmPass"> Confirma parola </label>
+							<label for="confirmPass"> Confirm password </label>
 							<input type="text" name="confirmPass">
 							<span class="error">*</span>
 						</div>
 
-						<p><span class="error">* camp obligatoriu</span></p>
+						<p><span class="error">* required field</span></p>
 						<button id="login" type="submit">Register</button>
 					</form>
 				</div>
 			</div>
-		</div>
 		<?php include('../Elem_site/footer.php'); ?>
-	</div>
 </body>
 
 </html>
