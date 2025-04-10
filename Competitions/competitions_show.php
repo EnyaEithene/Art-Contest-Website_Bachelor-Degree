@@ -17,7 +17,7 @@ if ($num_results > 0) {
 								<div class="object">
 									<h3> ' . $row['nume'] . ' </h3>
 									<p> ' . $row['descriere'] . ' </p>
-									<p style="font-style: italic;"> Perioada desfasurare: ' . $row['inceput'] . '-' . $row['final'] . ' </p>
+									<p style="font-style: italic;"> Duration: ' . $row['inceput'] . '-' . $row['final'] . ' </p>
 								</div>
 							</div>
 						</a><br>';
@@ -25,7 +25,7 @@ if ($num_results > 0) {
 } else {
 	echo '<div id="row">
 			<p id="column" style="color:#cf3266;text-align:center">
-				<strong>Eroare:</strong> Nu exista competitii deschise.
+				There are no ongoing contests.
 			</p>
 		</div>';
 }

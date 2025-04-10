@@ -50,18 +50,18 @@ $check = $db->query($select);
                                     if (mysqli_num_rows($check) == 0) {
                                         echo '<a href="competitions_inscriere.php?id=' . $ID . '";>
                                                         <button class="small" id="purple">
-                                                            Participa
+                                                            Sign up
                                                         </button>
                                                     </a>';
                                     } else {
                                         echo '<a href="competitions_schimbare.php?id=' . $ID . '">
                                                         <button class="small" id="purple">
-                                                            Schimba desenul
+                                                            Change image
                                                         </button>
                                                     </a>
                                                     <a href="competitions_stergere.php?id=' . $ID . '">
                                                         <button class="small" id="purple">
-                                                            Sterge participarea
+                                                            Leave contest
                                                         </button>
                                                     </a>';
                                     }
@@ -77,15 +77,15 @@ $check = $db->query($select);
                     // Afisare date competitie
                     if (mysqli_num_rows($result) > 0) {
                         echo ' <p> Tip: ' . $row['tip'] . ' </p>
-                                <p style="font-style: italic;"> Perioada desfasurare: ' . $row['inceput'] . '-' . $row['final'] . ' </p>
-                                <h3> Descriere </h3>
+                                <p style="font-style: italic;"> Duration: ' . $row['inceput'] . '-' . $row['final'] . ' </p>
+                                <h3> Description </h3>
                                 <h5> ' . $row['descriere'] . ' </h5>';
                     } else {
-                        echo '<div id="row">
-                                <p id="column" style="color:#cf3266;text-align:center">
-                                    <strong>Eroare:</strong> Nu putem gasi date despre aceasta competitie. Incercati din nou mai tarziu.
+                        echo "<div id='row'>
+                                <p id='column' style='color:#cf3266;text-align:center'>
+                                    <strong>Error:</strong> We can't find any data about this contest. Try again later.
                                 </p>
-                            </div>';
+                            </div>";
                     }
                     echo '</div>
                         </div>';
@@ -95,12 +95,12 @@ $check = $db->query($select);
 
                     if (!$take) {
                         echo '<div>
-                                Nu exista inscrieri.
+                                No one is participating yet.
                             </div>';
                     } else {
                         echo '<div id="row">
                                 <div id="column">
-                                    <h2>Participari</h2>
+                                    <h2>Contestants</h2>
                                 </div>
                             </div>';
 
