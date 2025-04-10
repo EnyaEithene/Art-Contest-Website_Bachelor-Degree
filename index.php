@@ -78,9 +78,15 @@
 					skills!
 				</p>
 			</div>
+			<div id="row">
+				<p id="column">
+					Upload your art in your own gallery, sign it up for an ongoing competition, and get graded by a randomly selected jury!
+				</p>
+				<img id="right" src="Images/website_img/cat.jpg">
+			</div>
 		</div>
-		<?php include('Elem_site/footer.php'); ?>
 	</div>
+	<?php include('Elem_site/footer.php'); ?>
 </body>
 
 </html>
