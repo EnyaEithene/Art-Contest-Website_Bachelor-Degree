@@ -22,7 +22,7 @@
 	// Verificare ca toate datele obligatorii au fost completate
 	if (!$nume || !$prenume || !$email || !$pass || !$confirmPass) {
 		echo ' <div> 
-				Nu ai completat toate casutele obligatorii.
+				You did not fill in all the required fields.
 			</div>';
 		exit;
 	}
@@ -47,9 +47,10 @@
 	$result = $db->query($query);
 	if ($result) {
 		echo '<div id="row">
+				<img id="left" src="../Images/website_img/welcome.jpg">
 				<p id="column" style="color:#cf3266;">
-					Felicitari! Sunteti logat ca participant. <br><br>
-					Va rugam sa va logati: <button id="purple" class="small"><a href="login_page.php">Log into account</a></button>
+					Congratulations! You are now registered as a contestant. <br><br>
+					Please login: <button id="purple" class="small"><a href="login_page.php">Log into account</a></button>
 				</p>
 			</div>';
 	}

@@ -21,7 +21,7 @@
 	if (!$email || !$pass) {
 		echo '<div id="row">
 				<p id="column" style="color:#cf3266;text-align:center">
-					<strong>Eroare:</strong> Nu ai completat toate casutele.
+					<strong>Error:</strong> All the required fields need to be filled in.
 				</p>
 			</div>';
 
@@ -52,18 +52,21 @@
 		//rol competitie
 		$_SESSION['rol'] = $result['rol_competitie'];
 
-		echo '<div id="row">
+		echo '<div id="page_stack">
+					<div id="row">
 						<p id="column" style="text-align:center;">
-							Bine ai venit, ' . $_SESSION['prenume'] . '! <br><br>
-							<a id="link" href="details.php">Acceseaza-ti contul</a> sau <a id="link" href="../Main_pages/competitions.php">vezi ce competitii sunt active</a>!
+							Welcome, ' . $_SESSION['prenume'] . '! <br><br>
+							<a id="link" href="details.php">Access your account</a><br> or <br><a id="link" href="../Main_pages/competitions.php">see what competitions are happening right now</a>!
 						</p>
-					</div>';
+						<img id="right" src="../Images/website_img/welcome.jpeg">
+					</div>
+			</div>';
 
 	} else {
 		echo '<!-- Mesaj de eroare -->
 					<div id="row">
 						<p id="column" style="color:#cf3266;text-align:center">
-							<strong>Eroare:</strong> Email-ul sau parola nu este corecta.
+							<strong>Error:</strong> The e-mail or password are not correct.
 						</p>
 					</div>
 
@@ -82,7 +85,7 @@
 								</div>
 								
 								<div class="form-group">
-									<label for="pass"> Parola </label>
+									<label for="pass"> Password </label>
 									<input type="text" name="pass">
 								</div>
 								

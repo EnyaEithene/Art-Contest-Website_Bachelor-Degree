@@ -9,12 +9,11 @@
 	</head>
 
 	<body>
-		<div class="page-container">
-			<div class="content-wrap">
-				<?php include('../Elem_site/menu.php'); ?>
+		<?php include('../Elem_site/menu.php'); ?>
 
-				<?php include('../Elem_site/logo.php'); ?>
+		<?php include('../Elem_site/logo.php'); ?>
 
+			<div id="page_stack">
 				<div id="row">
 					<div id="column">
 						<div>
@@ -27,8 +26,7 @@
 				</div>
 			</div>
 
-			<?php include('../Elem_site/footer.php'); ?>
-		</div>
+		<?php include('../Elem_site/footer.php'); ?>
 	</body>
 
 	</html>
