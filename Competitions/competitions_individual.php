@@ -76,7 +76,7 @@ $check = $db->query($select);
                     <?php
                     // Afisare date competitie
                     if (mysqli_num_rows($result) > 0) {
-                        echo ' <p> Tip: ' . $row['tip'] . ' </p>
+                        echo ' <p> Type: ' . $row['tip'] . ' </p>
                                 <p style="font-style: italic;"> Duration: ' . $row['inceput'] . '-' . $row['final'] . ' </p>
                                 <h3> Description </h3>
                                 <h5> ' . $row['descriere'] . ' </h5>';
