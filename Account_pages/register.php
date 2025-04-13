@@ -47,7 +47,7 @@
 	$result = $db->query($query);
 	if ($result) {
 		echo '<div id="row">
-				<img id="left" src="../Images/website_img/welcome.jpg">
+				<img id="left" src="../Images/website_img/welcome.jpeg">
 				<p id="column" style="color:#cf3266;">
 					Congratulations! You are now registered as a contestant. <br><br>
 					Please login: <button id="purple" class="small"><a href="login_page.php">Log into account</a></button>

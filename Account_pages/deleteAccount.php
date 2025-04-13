@@ -1,15 +1,12 @@
 <?php
 session_start();
-header("Cache-Control: no-cache, no-store, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: 0");
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title> titlu pagina </title>
+	<title> Account deletion </title>
 	<link rel="stylesheet" href="../websiteStyle.css">
 </head>
 
@@ -23,11 +20,12 @@ header("Expires: 0");
 			<div id="row">
 				<div id="column">
 					<div>
-						<h1> Titlu pagina </h1>
+						<h1> Account deletion </h1>
 					</div>
 
-					<!-- Continut pagina -->
-
+					Are you sure you want to delete your account? <br><br>
+                    <button id="logout" class="small" onclick="location.href='delete.php'" type="button"> Yes, delete my account </button>
+                    <button class="small" id="edit" onclick="location.href='details.php'" type="button"> No, go back to details </button>
 				</div>
 			</div>
 

@@ -1,5 +1,8 @@
 <?php
 session_start();
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +48,10 @@ session_start();
 
 				<div>
 					<button id="logout" class="small" onclick="location.href='logout.php'" type="button"> Logout </button>
+				</div>
+
+				<div>
+					<button id="logout" class="small" onclick="location.href='deleteAccount.php'" type="button"> Delete Account </button>
 				</div>
 			</div>
 		</div>
