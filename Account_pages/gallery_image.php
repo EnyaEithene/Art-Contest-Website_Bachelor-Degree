@@ -47,17 +47,17 @@ if (mysqli_num_rows($take) > 0) {
 						<th style="font-size:3vw"> ' . $titlu . ' </th>
 					</tr>
 					<tr>
-						<th> Descriere </th>
+						<th> Description </th>
 						<td> ' . $descriere . ' </td>
 					</tr>
                     <!--
                     <tr>
-						<th> Marime </th>
+						<th> Size </th>
 						<td> ' . $marime . '</td>
 					</tr>
                     -->
 					<tr>
-						<th> Data incarcare </th>
+						<th> Upload date </th>
 						<td> ' . $data_incarcare . ' </td>
 					</tr>
 				</table>

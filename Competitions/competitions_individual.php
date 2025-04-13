@@ -26,7 +26,7 @@ $check = $db->query($select);
 <html>
 
 <head>
-    <title> Competitie </title>
+    <title> Competition </title>
     <link rel="stylesheet" href="../websiteStyle.css">
 </head>
 
@@ -108,8 +108,34 @@ $check = $db->query($select);
                         switch ($_SESSION['rol']) {
                             case 0:                                     // Participant
                                 while ($row = $take->fetch_assoc()) {
+                                    // Preluare date desen
+                                    $q = "select * from arta_participanti where ID = ". $row['ID_imagine']." and ID_participant = '". $row['ID_participant']."'";
+                                    $data = $db->query($q);  
+                                    $dataRow = $data->fetch_assoc();
+                                    
+                                    // Preluare nume artist
+                                    $qq = "select nume, prenume from conturi where email = '". $row['ID_participant'] ."';";
+                                    $getName = $db->query($qq);
+                                    $name = $getName->fetch_assoc();
+
+                                    // Afisare desen
                                     echo '<div id="row">
                                             <img id="left" src="../Images/uploaded_img/' . $row['ID_participant'] . '_imagine_' . $row['ID_imagine'] . '.jpeg"><br><br>
+                                        <p id="column">
+                                            <table style="font-size:1.5vw">
+                                            <tr>
+                                                <th style="font-size:3vw"> ' . $dataRow['titlu'] . ' </th>
+                                            </tr>
+                                            <tr>
+                                                <th> Artist </th>
+                                                <td> ' . $name['nume'] . ' '. $name['prenume'] .' </td>
+                                            </tr>
+                                            <tr>
+                                                <th> Description </th>
+                                                <td> ' . $dataRow['descriere'] . ' </td>
+                                            </tr>
+                                        </table>
+                                        </p>
                                         </div>';
                                 }
                                 break;

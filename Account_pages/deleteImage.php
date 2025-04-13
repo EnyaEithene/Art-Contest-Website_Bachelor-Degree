@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 <html>
 
 <head>
-	<title> titlu pagina </title>
+	<title> Image deletion </title>
 	<link rel="stylesheet" href="../websiteStyle.css">
 </head>
 

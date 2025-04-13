@@ -8,8 +8,8 @@ if ($num_results != 0) {
         $row = $result->fetch_assoc();
         //echo ;
         echo '<label for="img' . $row['id'] . '">
-                <input type="radio" name="img[]" value=' . $row['id'] . '>
-                <img style="height:auto;width:20%" class="gallery" src="../Images/uploaded_img/' . stripslashes($row['id_participant']) . '_imagine_' . stripslashes($row['id']) . '.jpeg"></img>
+                <input type="radio" name="img[]" value=' . $row['ID'] . '>
+                <img style="height:auto;width:20%" class="gallery" src="../Images/uploaded_img/' . stripslashes($row['ID_participant']) . '_imagine_' . stripslashes($row['ID']) . '.jpeg"></img>
             </label><br>';
     }
 } else {

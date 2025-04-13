@@ -1,7 +1,7 @@
 <?php session_start();
 include("../PHP_Scripts/db_connect.php");
 // Variabila extrase din link 
-$ID = $_GET['id'];
+$ID = $_GET['ID'];
 
 // Extragere date competitie din baza de date 
 $query = 'select nume 
