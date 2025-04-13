@@ -19,7 +19,7 @@ if (mysqli_num_rows($take) > 0) {
 } else {
     echo '<div id="row">
 			<p id="column" style="color:#cf3266;text-align:center">
-				<strong>Eroare:</strong> Nu s-au putut incarca datele imaginii.
+				<strong>Erorr:</strong> Could not load image data.
 			</p>			
         </div>';
 }
@@ -50,10 +50,12 @@ if (mysqli_num_rows($take) > 0) {
 						<th> Descriere </th>
 						<td> ' . $descriere . ' </td>
 					</tr>
-					<tr>
+                    <!--
+                    <tr>
 						<th> Marime </th>
 						<td> ' . $marime . '</td>
 					</tr>
+                    -->
 					<tr>
 						<th> Data incarcare </th>
 						<td> ' . $data_incarcare . ' </td>
@@ -62,7 +64,17 @@ if (mysqli_num_rows($take) > 0) {
                 </p>';
         ?>
     </div>
-
+    <div id="row">
+        <?php
+        echo '<div id="form_stack">
+                <form action="deleteImage.php" method="POST">
+                    <input type="hidden" name="id_img" value="'.$idImagine.'"> 
+                    <button id="logout" class="small" type="submit"> Delete Image </button>
+                </form>
+            </div>';
+        ?>
+    </div>
+    <?php include("../Elem_site/footer.php"); ?>
 </body>
 
 </html>

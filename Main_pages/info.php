@@ -35,6 +35,7 @@
 					There are a couple of rules to follow in order to participate:
 					<ul>
 						<li> No AI generated art; this website is made for grading art made by people with their own skills, which don't involve writing text prompts. </li>
+						<li> Only .jpeg images are supported for upload in the user's gallery. </li>
 						<li> Have fun and keep experimenting! :D </li>
 					</ul>
 				</div>
