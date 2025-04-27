@@ -18,8 +18,11 @@ header("Expires: 0");
 
 	<?php include('../Elem_site/logo.php'); ?>
 
+	
+
 	<?php include('../Elem_site/user_side_menu.php'); ?>
 
+	<div id="page_stack">
 	<div class="main">
 		<div id="row">
 			<div id="column">
@@ -55,6 +58,7 @@ header("Expires: 0");
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<?php include('../Elem_site/footer.php'); ?>

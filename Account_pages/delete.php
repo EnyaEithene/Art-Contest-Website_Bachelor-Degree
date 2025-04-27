@@ -11,12 +11,10 @@ session_start();
 </head>
 
 <body>
-	<div class="page-container">
-		<div class="content-wrap">
-			<?php include('../Elem_site/menu.php'); ?>
+		<?php include('../Elem_site/menu.php'); ?>
+		<?php include('../Elem_site/logo.php'); ?>
 
-			<?php include('../Elem_site/logo.php'); ?>
-
+        <div id="page_stack">
 			<div id="row">
 				<div id="column">
 					<div>
@@ -42,16 +40,14 @@ session_start();
                             }
                             session_destroy();
 
-                            echo '<div id="page_stack">
-                                    <div id="row">
+                            echo '<div id="row">
                                         <p id="column" style="text-align:center;">
                                             Your account was succesfully deleted. <br>
                                             Wish you all the best! <3 <br><br>
                                             <button class="small" id="edit" onclick="location.href=\'../index.php\'" type="button"> Return to main page </button>
                                         </p>
                                         <img id="right" src="../Images/website_img/welcome.jpeg">
-                                    </div>
-                            </div>';
+                                    </div>';
                         } else {
                             echo "<!-- Mesaj de eroare -->
                                     <div id='row'>
@@ -61,13 +57,10 @@ session_start();
                                     </div>";
                         }
                     ?>
-
 				</div>
-			</div>
-
-		</div>
+            </div>
+        </div>
 		<?php include("../Elem_site/footer.php"); ?>
-	</div>
 </body>
 
 </html>
