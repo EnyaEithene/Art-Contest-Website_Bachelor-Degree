@@ -6,9 +6,10 @@
 	<link rel="stylesheet" href="../websiteStyle.css">
 </head>
 
-<body>
+<i>
 	<?php include('../Elem_site/logo.php'); ?>
 
+	<div id="page_stack">
 	<?php
 
 	// Datele din formular
@@ -58,6 +59,7 @@
 	?>
 
 	<?php include('../Elem_site/menu.php'); ?>
+	</div>
 	<?php include('../Elem_site/footer.php'); ?>
 </body>
 

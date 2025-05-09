@@ -1,7 +1,7 @@
 <?php session_start();
 include("../PHP_Scripts/db_connect.php");
 // Variabila extrase din link 
-$ID = $_GET['ID'];
+$ID = $_GET['id'];
 
 // Extragere date competitie din baza de date 
 $query = 'select nume 
@@ -16,13 +16,12 @@ $row = $result->fetch_assoc();
 <html>
 
 <head>
-    <title> titlu pagina </title>
+    <title> Sign up </title>
     <link rel="stylesheet" href="../websiteStyle.css">
 </head>
 
 <body>
-    <div class="page-container">
-        <div class="content-wrap">
+    <div class="page_stack">
             <?php include('../Elem_site/menu.php'); ?>
 
             <?php include('../Elem_site/logo.php'); ?>
@@ -35,19 +34,20 @@ $row = $result->fetch_assoc();
 
                     <!-- Continut pagina -->
                     <div id="form_stack"></div>
-                    <form action="inscriere.php?id=<?php echo $ID; ?>" method="POST">
+                        <form action="inscriere.php?id=<?php echo $ID; ?>" method="POST">
+                            <?php
+                                include("show_images.php");
+                            ?>
+                            <button id="login" type="submit">Sign up</button>
+                        </form>
                         <?php
-                        include("show_images.php");
+                        echo '<button id="purple" class="small" type="button"><a href="competitions_individual.php?id=' . $ID . '">Return to the competition</a></button>';
                         ?>
-                        <button id="login" type="submit">Inscrie-te</button>
-                    </form>
                 </div>
             </div>
-        </div>
 
     </div>
     <?php include("../Elem_site/footer.php"); ?>
-    </div>
 </body>
 
 </html>

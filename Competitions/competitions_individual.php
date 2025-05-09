@@ -14,12 +14,10 @@ $row = $result->fetch_assoc();
 // Verificare daca utilizatorul s-a inscris deja la acest concurs
 $select = 'select *
     from participari
-    where ID_participant = "' . $_SESSION['ID'] . '"
-    limit 1';
-
-//echo $select;
+    where ID_participant = "' . $_SESSION['ID'] . '" and ID_competitie = '. $ID . ';';
 
 $check = $db->query($select);
+$col = $check->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -31,12 +29,11 @@ $check = $db->query($select);
 </head>
 
 <body>
-    <div class="page-container">
-        <div class="content-wrap">
-            <?php include('../Elem_site/menu.php'); ?>
+        <?php include('../Elem_site/menu.php'); ?>
 
-            <?php include('../Elem_site/logo.php'); ?>
+        <?php include('../Elem_site/logo.php'); ?>
 
+        <div id="page_stack">
             <div id="row">
                 <div id="column">
                     <div>
@@ -46,15 +43,15 @@ $check = $db->query($select);
                         <h2>
                             <?php
                             switch ($_SESSION['rol']) {
-                                case 0:
-                                    if (mysqli_num_rows($check) == 0) {
+                                case 0:                     // Paticipant
+                                    if (!$col) {    // Nu are imagini inscrise
                                         echo '<a href="competitions_inscriere.php?id=' . $ID . '";>
                                                         <button class="small" id="purple">
                                                             Sign up
                                                         </button>
                                                     </a>';
-                                    } else {
-                                        echo '<a href="competitions_schimbare.php?id=' . $ID . '">
+                                    } else {        // Are imagini inscrise
+                                        echo '<a href="competitions_inscriere.php?id=' . $ID . '">
                                                         <button class="small" id="purple">
                                                             Change image
                                                         </button>
@@ -66,7 +63,7 @@ $check = $db->query($select);
                                                     </a>';
                                     }
                                     break;
-                                case 1:
+                                case 1:                        // Jurat (fara butoane)
                                     break;
                             }
                             ?>
@@ -89,21 +86,25 @@ $check = $db->query($select);
                     }
                     echo '</div>
                         </div>';
+                    
+                    echo '<div id="row">
+                            <div id="column">
+                                <h2>Contestants</h2>
+                            </div>
+                         </div>';
 
-                    $query = 'select * from participari';
+
+                    $query = 'select * from participari where ID_competitie ='. $ID;
                     $take = $db->query($query);
+                    $num_rows = $take->num_rows;
 
-                    if (!$take) {
-                        echo '<div>
-                                No one is participating yet.
-                            </div>';
-                    } else {
+                    if ($num_rows == 0) {
                         echo '<div id="row">
                                 <div id="column">
-                                    <h2>Contestants</h2>
+                                    No one is participating yet.
                                 </div>
                             </div>';
-
+                    } else {
                         // Afisare desene inscrise
                         switch ($_SESSION['rol']) {
                             case 0:                                     // Participant
@@ -181,7 +182,6 @@ $check = $db->query($select);
                     ?>
                 </div>
                 <?php include("../Elem_site/footer.php"); ?>
-            </div>
 </body>
 
 </html>

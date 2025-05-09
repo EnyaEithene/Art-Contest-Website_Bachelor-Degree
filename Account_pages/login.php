@@ -52,15 +52,27 @@
 		//rol competitie
 		$_SESSION['rol'] = $result['rol_competitie'];
 
-		echo '<div id="page_stack">
-					<div id="row">
-						<p id="column" style="text-align:center;">
-							Welcome, ' . $_SESSION['prenume'] . '! <br><br>
-							<a id="link" href="details.php">Access your account</a><br> or <br><a id="link" href="../Main_pages/competitions.php">see what competitions are happening right now</a>!
-						</p>
-						<img id="right" src="../Images/website_img/welcome.jpeg">
-					</div>
-			</div>';
+		if($_SESSION['rol'] == 0){
+			echo '<div id="page_stack">
+						<div id="row">
+							<p id="column" style="text-align:center;">
+								Welcome, ' . $_SESSION['prenume'] . '! <br><br>
+								<a id="link" href="details.php">Access your account</a><br> or <br><a id="link" href="../Main_pages/competitions.php">see what competitions are happening right now</a>!
+							</p>
+							<img id="right" src="../Images/website_img/welcome.jpeg">
+						</div>
+				</div>';
+		} elseif($_SESSION['rol'] == 1){
+			echo '<div id="page_stack">
+						<div id="row">
+							<p id="column" style="text-align:center;">
+								Welcome, ' . $_SESSION['prenume'] . '! <br><br>
+								<a id="link" href="details.php">Access your account</a><br> or <br><a id="link" href="../Main_pages/competitions.php">check the competitions that need grading</a>!
+							</p>
+							<img id="right" src="../Images/website_img/welcome.jpeg">
+						</div>
+				</div>';
+		}
 
 	} else {
 		echo '<!-- Mesaj de eroare -->

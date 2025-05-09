@@ -13,7 +13,7 @@ error_reporting(E_ALL);
 <html>
 
 <head>
-	<title> titlu pagina </title>
+	<title> Leave contest </title>
 	<link rel="stylesheet" href="../websiteStyle.css">
 </head>
 
@@ -26,11 +26,16 @@ error_reporting(E_ALL);
 		<div id="row">
 			<div id="column">
 				<div>
-					<h1> Titlu pagina </h1>
+					<h1> Leave contest </h1>
 				</div>
 
 				<!-- Continut pagina -->
+                 <?php
+                    $ID = $_GET['id'];
 
+                    $query = 'select * from participari 
+                                where ';
+                 ?>
 			</div>
 		</div>
 
