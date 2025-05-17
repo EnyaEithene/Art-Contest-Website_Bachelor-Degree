@@ -7,6 +7,8 @@ header("Expires: 0");
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+include('../PHP_Scripts/db_connect.php');
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +35,24 @@ error_reporting(E_ALL);
                  <?php
                     $ID = $_GET['id'];
 
-                    $query = 'select * from participari 
-                                where ';
+                    $query = 'delete from participari 
+                            	where ID_competitie = "'. $ID .'" 
+								and ID_participant = "'. $_SESSION['ID'] .'";';
+
+					if($db->query($query)){
+						echo '<div id="row">
+                                <div id="column">
+                                    Your participation was deleted. <br><br>
+									You can return to the competition list <a id="link" href="../Main_pages/competitions.php">here</a>.
+                                </div>
+                            </div>';
+					} else {
+						echo "<div id='row'>
+                                <p id='column' style='color:#cf3266;text-align:center'>
+                                    <strong>Error:</strong> We couldn't delete the entry for this competition. Try again later.
+                                </p>
+                            </div>";
+					}
                  ?>
 			</div>
 		</div>
