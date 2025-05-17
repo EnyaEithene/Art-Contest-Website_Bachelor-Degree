@@ -42,8 +42,8 @@ header("Expires: 0");
 								<a href="Account_pages/login_page.php"> Login </a>
 							</li>
 						</ul>';
-						} else {
-							// Meniu pentru utilizatori logati 
+						} else if($_SESSION["rol"] == 0) {
+							// Meniu pentru utilizatori logati cu rol de participant
 							echo '<ul class="dropdown">
 							<li class="dropdown-item">
 								<a href="Account_pages/details.php"> Details </a>
@@ -55,6 +55,17 @@ header("Expires: 0");
 							
 							<li class="dropdown-item">
 								<a href="Account_pages/participations.php"> Participations </a>
+							</li>
+							
+							<li class="dropdown-item logout">
+								<a id="logout" href="Account_pages/logout.php"> Logout </a>
+							</li>
+						</ul>';
+						} else {
+							// Meniu pentru utilizatori logati cu rol de jurat
+							echo '<ul class="dropdown">
+							<li class="dropdown-item">
+								<a href="Account_pages/details.php"> Details </a>
 							</li>
 							
 							<li class="dropdown-item logout">
