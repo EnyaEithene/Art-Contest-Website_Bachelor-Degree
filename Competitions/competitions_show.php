@@ -2,7 +2,7 @@
 include("../PHP_Scripts/db_connect.php");
 
 // Pentru participanti
-if($_SESSION['rol'] == 0 || $_SESSION['rol'] == 2){
+if($_SESSION['rol'] == 0){
 	$query = 'select ID, nume, descriere, DATE_FORMAT(data_inceput,"%d.%m.%Y") AS inceput, DATE_FORMAT(data_final,"%d.%m.%Y") as final 
 				from competitii 
 				where data_inceput<=curdate() and data_final>=curdate()';
@@ -32,7 +32,7 @@ if($_SESSION['rol'] == 0 || $_SESSION['rol'] == 2){
 			</div>';
 	}
 	
-} elseif($_SESSION['rol'] == 1){
+} else if($_SESSION['rol'] == 1){
 	$query0 = 'select ID_competitie from jurati_competitii where ID_jurat = "'. $_SESSION['ID'] .'";';
 
 	$check = $db->query($query0);
@@ -63,7 +63,7 @@ if($_SESSION['rol'] == 0 || $_SESSION['rol'] == 2){
 			} else {
 				echo '<div id="row">
 						<p id="column" style="color:#cf3266;text-align:center">
-							There are no ongoing contests.
+							There are no contests to grade.
 						</p>
 					</div>';
 			}	
