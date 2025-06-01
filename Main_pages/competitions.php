@@ -24,10 +24,14 @@ ini_set('display_errors', 1);
 				<div id="row">
 					<div id="column">
 						<div>
-							<h1> Competitions </h1>
+							<h1> On-going Competitions </h1>
 						</div>
 
 						<?php include("../Competitions/competitions_show.php"); ?>
+            
+            <h1> Past competitions </h1>
+
+           	<?php include("../Competitions/competitions_show_past.php"); ?>
 
 					</div>
 				</div>

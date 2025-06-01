@@ -44,23 +44,28 @@ $col = $check->fetch_assoc();
                             <?php
                             switch ($_SESSION['rol']) {
                                 case 0:                     // Paticipant
-                                    if (!$col) {    // Nu are imagini inscrise
-                                        echo '<a href="competitions_inscriere.php?id=' . $ID . '";>
-                                                        <button class="small" id="purple">
-                                                            Sign up
-                                                        </button>
-                                                    </a>';
-                                    } else {        // Are imagini inscrise
-                                        echo '<a href="competitions_inscriere.php?id=' . $ID . '">
-                                                        <button class="small" id="purple">
-                                                            Change image
-                                                        </button>
-                                                    </a>
-                                                    <a href="competitions_stergere.php?id=' . $ID . '">
-                                                        <button class="small" id="purple">
-                                                            Leave contest
-                                                        </button>
-                                                    </a>';
+                                    if($row['final'] <= date('d.m.y'))
+                                    {
+                                        if (!$col) {    // Nu are imagini inscrise
+                                            echo '<a href="competitions_inscriere.php?id=' . $ID . '";>
+                                                            <button class="small" id="purple">
+                                                                Sign up
+                                                            </button>
+                                                        </a>';
+                                        } else {        // Are imagini inscrise
+                                            echo '<a href="competitions_inscriere.php?id=' . $ID . '">
+                                                            <button class="small" id="purple">
+                                                                Change image
+                                                            </button>
+                                                        </a>
+                                                        <a href="competitions_stergere.php?id=' . $ID . '">
+                                                            <button class="small" id="purple">
+                                                                Leave contest
+                                                            </button>
+                                                        </a>';
+                                        }
+                                    } else {                   // Daca s-a incheiat concurcul, nu se mai afiseaza butoane
+                                        break;
                                     }
                                     break;
                                 case 1:                        // Jurat (fara butoane)
@@ -134,8 +139,14 @@ $col = $check->fetch_assoc();
                                             <tr>
                                                 <th> Description </th>
                                                 <td> ' . $dataRow['descriere'] . ' </td>
-                                            </tr>
-                                        </table>
+                                        </tr>';
+                                    if ($row['final'] >= date('d.m.y')){
+                                        echo '<tr>
+                                                  <th> Final Grade </th>
+                                                  <td> </td>
+                                              </tr>';
+                                    }
+                                    echo '</table>
                                         </p>
                                         </div>';
                                 }
