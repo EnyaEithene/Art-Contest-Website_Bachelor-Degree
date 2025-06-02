@@ -9,11 +9,15 @@ footer {
   color: #24337d;
 }
 
-#page-container {
+#page_stack {
+  height: auto;
+  width: 100%;
+  font-size: 30px;
+
   position: relative;
-  min-height: 100%;
+  text-align: center;
+  margin: auto;
+  flex: 1;
+  padding: 20px;
 }
 
-#content-wrap {
-  padding-bottom: 2rem;
-}
