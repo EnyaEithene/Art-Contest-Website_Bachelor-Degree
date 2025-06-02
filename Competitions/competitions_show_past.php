@@ -4,7 +4,7 @@ include("../PHP_Scripts/db_connect.php");
 if($_SESSION['rol'] == 0){      // Pentru participanti
 	$query = 'select ID, nume, descriere, DATE_FORMAT(data_inceput,"%d.%m.%Y") AS inceput, DATE_FORMAT(data_final,"%d.%m.%Y") AS final 
 				    from competitii 
-				    where data_final>=curdate()';
+				    where data_final<=curdate()';
 				
 	$show = $db->query($query);
 	$num_results = $show->num_rows;
@@ -26,7 +26,7 @@ if($_SESSION['rol'] == 0){      // Pentru participanti
 	} else {
 		echo '<div id="row">
 				<p id="column" style="color:#cf3266;text-align:center">
-					There are no ongoing contests.
+					There are no past contests.
 				</p>
 			</div>';
 	}

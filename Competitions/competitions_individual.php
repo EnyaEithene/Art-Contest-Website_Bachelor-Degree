@@ -1,5 +1,13 @@
 <?php
 session_start();
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include("../PHP_Scripts/db_connect.php");
 // Variabila extrase din link 
 $ID = $_GET['id'];
@@ -44,7 +52,7 @@ $col = $check->fetch_assoc();
                             <?php
                             switch ($_SESSION['rol']) {
                                 case 0:                     // Paticipant
-                                    if($row['final'] <= date('d.m.y'))
+                                    if(strtotime($row['final']) >= time()) 
                                     {
                                         if (!$col) {    // Nu are imagini inscrise
                                             echo '<a href="competitions_inscriere.php?id=' . $ID . '";>
@@ -113,20 +121,20 @@ $col = $check->fetch_assoc();
                         // Afisare desene inscrise
                         switch ($_SESSION['rol']) {
                             case 0:                                     // Participant
-                                while ($row = $take->fetch_assoc()) {
+                                while ($part = $take->fetch_assoc()) {
                                     // Preluare date desen
-                                    $q = "select * from arta_participanti where ID = ". $row['ID_imagine']." and ID_participant = '". $row['ID_participant']."'";
+                                    $q = "select * from arta_participanti where ID = ". $part['ID_imagine']." and ID_participant = '". $part['ID_participant']."'";
                                     $data = $db->query($q);  
                                     $dataRow = $data->fetch_assoc();
                                     
                                     // Preluare nume artist
-                                    $qq = "select nume, prenume from conturi where email = '". $row['ID_participant'] ."';";
+                                    $qq = "select nume, prenume from conturi where email = '". $part['ID_participant'] ."';";
                                     $getName = $db->query($qq);
                                     $name = $getName->fetch_assoc();
 
                                     // Afisare desen
                                     echo '<div id="row">
-                                            <img id="left" src="../Images/uploaded_img/' . $row['ID_participant'] . '_imagine_' . $row['ID_imagine'] . '.jpeg"><br><br>
+                                            <img id="left" src="../Images/uploaded_img/' . $part['ID_participant'] . '_imagine_' . $part['ID_imagine'] . '.jpeg"><br><br>
                                         <p id="column">
                                             <table style="font-size:1.5vw">
                                             <tr>
@@ -140,7 +148,8 @@ $col = $check->fetch_assoc();
                                                 <th> Description </th>
                                                 <td> ' . $dataRow['descriere'] . ' </td>
                                         </tr>';
-                                    if ($row['final'] >= date('d.m.y')){
+                                    if(strtotime($row['final']) <= time()) 
+                                    {
                                         echo '<tr>
                                                   <th> Final Grade </th>
                                                   <td> </td>
