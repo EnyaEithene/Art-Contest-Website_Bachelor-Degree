@@ -1,11 +1,10 @@
 <?php
 include("../PHP_Scripts/db_connect.php");
 
-// Pentru participanti
-if($_SESSION['rol'] == 0){
-	$query = 'select ID, nume, descriere, DATE_FORMAT(data_inceput,"%d.%m.%Y") AS inceput, DATE_FORMAT(data_final,"%d.%m.%Y") as final 
-				from competitii 
-				where data_inceput<=curdate() and data_final>=curdate()';
+if($_SESSION['rol'] == 0){      // Pentru participanti
+	$query = 'select ID, nume, descriere, DATE_FORMAT(data_inceput,"%d.%m.%Y") AS inceput, DATE_FORMAT(data_final,"%d.%m.%Y") AS final 
+				    from competitii 
+				    where data_final<=curdate()';
 				
 	$show = $db->query($query);
 	$num_results = $show->num_rows;
@@ -27,12 +26,12 @@ if($_SESSION['rol'] == 0){
 	} else {
 		echo '<div id="row">
 				<p id="column" style="color:#cf3266;text-align:center">
-					There are no ongoing contests.
+					There are no past contests.
 				</p>
 			</div>';
 	}
 	
-} else if($_SESSION['rol'] == 1){
+} else if($_SESSION['rol'] == 1){     // Pentru jurati
 	$query0 = 'select ID_competitie from jurati_competitii where ID_jurat = "'. $_SESSION['ID'] .'";';
 
 	$check = $db->query($query0);
@@ -41,7 +40,7 @@ if($_SESSION['rol'] == 0){
 		while($col = $check->fetch_assoc()){
 			$query = 'select ID, nume, descriere, DATE_FORMAT(data_inceput,"%d.%m.%Y") AS inceput, DATE_FORMAT(data_final,"%d.%m.%Y") as final 
 					from competitii 
-					where data_final<=curdate() and ID = '. $col['ID_competitie'] .';';
+					where data_final>=curdate() and ID = '. $col['ID_competitie'] .';';
 			
 			$show = $db->query($query);
 			$num_results = $show->num_rows;

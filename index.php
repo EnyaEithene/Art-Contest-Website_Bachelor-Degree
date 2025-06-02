@@ -1,4 +1,8 @@
-<?php session_start();
+<?php 
+session_start();
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +42,8 @@
 								<a href="Account_pages/login_page.php"> Login </a>
 							</li>
 						</ul>';
-						} else {
-							// Meniu pentru utilizatori logati 
+						} else if($_SESSION["rol"] == 0) {
+							// Meniu pentru utilizatori logati cu rol de participant
 							echo '<ul class="dropdown">
 							<li class="dropdown-item">
 								<a href="Account_pages/details.php"> Details </a>
@@ -51,6 +55,17 @@
 							
 							<li class="dropdown-item">
 								<a href="Account_pages/participations.php"> Participations </a>
+							</li>
+							
+							<li class="dropdown-item logout">
+								<a id="logout" href="Account_pages/logout.php"> Logout </a>
+							</li>
+						</ul>';
+						} else {
+							// Meniu pentru utilizatori logati cu rol de jurat
+							echo '<ul class="dropdown">
+							<li class="dropdown-item">
+								<a href="Account_pages/details.php"> Details </a>
 							</li>
 							
 							<li class="dropdown-item logout">
@@ -78,9 +93,15 @@
 					skills!
 				</p>
 			</div>
+			<div id="row">
+				<p id="column">
+					Upload your art in your own gallery, sign it up for an ongoing competition, and get graded by a randomly selected jury!
+				</p>
+				<img id="right" src="Images/website_img/cat.jpg">
+			</div>
 		</div>
-		<?php include('Elem_site/footer.php'); ?>
 	</div>
+	<?php include('Elem_site/footer.php'); ?>
 </body>
 
 </html>

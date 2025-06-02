@@ -6,9 +6,10 @@
 	<link rel="stylesheet" href="../websiteStyle.css">
 </head>
 
-<body>
+<i>
 	<?php include('../Elem_site/logo.php'); ?>
 
+	<div id="page_stack">
 	<?php
 
 	// Datele din formular
@@ -22,7 +23,7 @@
 	// Verificare ca toate datele obligatorii au fost completate
 	if (!$nume || !$prenume || !$email || !$pass || !$confirmPass) {
 		echo ' <div> 
-				Nu ai completat toate casutele obligatorii.
+				You did not fill in all the required fields.
 			</div>';
 		exit;
 	}
@@ -35,7 +36,7 @@
 
 
 	// Instructiuni pentru incarcarea datelor in tabelul "conturi"
-	$query = "insert into conturi(nume, prenume, email, telefon, password) values 
+	$query = "insert into conturi(nume, prenume, email, telefon, parola) values 
             ('" . $nume . "', '" . $prenume . "', '" . $email . "', '" . $tel . "', '" . $pass . "');";
 
 
@@ -47,9 +48,10 @@
 	$result = $db->query($query);
 	if ($result) {
 		echo '<div id="row">
+				<img id="left" src="../Images/website_img/welcome.jpeg">
 				<p id="column" style="color:#cf3266;">
-					Felicitari! Sunteti logat ca participant. <br><br>
-					Va rugam sa va logati: <button id="purple" class="small"><a href="login_page.php">Log into account</a></button>
+					Congratulations! You are now registered as a contestant. <br><br>
+					Please login: <button id="purple" class="small"><a href="login_page.php">Log into account</a></button>
 				</p>
 			</div>';
 	}
@@ -57,6 +59,7 @@
 	?>
 
 	<?php include('../Elem_site/menu.php'); ?>
+	</div>
 	<?php include('../Elem_site/footer.php'); ?>
 </body>
 

@@ -20,6 +20,20 @@ div#inline-div {
   padding: 20px;
 }
 
+#page_stack {
+  height: auto;
+  width: 100%;
+  font-size: 30px;
+
+  position: relative;
+  left: 25%;
+  margin-top: -10px;
+  margin-left: -450px;
+  text-align: center;
+  flex: 1;
+  padding: 20px;
+}
+
 /* Formulare - casute */
 
 .form-group {
@@ -48,6 +62,19 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
+textarea {
+  flex: 1 0 20px;
+  text-align: left;
+  padding: 10px;
+  width: 250px;
+  font-size: 1vw;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+
+  resize: none;
+}
+
 input[type="file"] {
   font-size: 1.5vw;
   text-align: center;
@@ -56,8 +83,8 @@ input[type="file"] {
   width: auto;
 }
 
-/* HIDE RADIO }*/
-[type="checkbox"] {
+/* HIDE RADIO */
+[type="radio"] {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -65,18 +92,15 @@ input[type="file"] {
 }
 
 /* IMAGE STYLES */
-[type="checkbox"] + img {
+[type="radio"] + img {
   cursor: pointer;
   outline: none;
+  transition: outline 0.2s ease;
 }
 
 /* CHECKED STYLES */
-[type="checkbox"]:checked + img {
+[type="radio"]:checked + img {
   outline: 5px solid purple;
-}
-
-[type="checkbox"]:unchecked + img {
-  outline: none;
 }
 
 /* Formulare - eroare */

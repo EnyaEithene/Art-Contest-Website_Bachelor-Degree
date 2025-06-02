@@ -1,5 +1,8 @@
 <?php
 session_start();
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +18,11 @@ session_start();
 
 	<?php include('../Elem_site/logo.php'); ?>
 
+	
+
 	<?php include('../Elem_site/user_side_menu.php'); ?>
 
+	<div id="page_stack">
 	<div class="main">
 		<div id="row">
 			<div id="column">
@@ -25,30 +31,34 @@ session_start();
 				</div>
 				<table>
 					<tr>
-						<th> Nume </th>
-						<td> <?php echo $_SESSION['nume'] ?> </td>
-					</tr>
-					<tr>
-						<th> Prenume </th>
+						<th> First Name </th>
 						<td> <?php echo $_SESSION['prenume'] ?> </td>
 					</tr>
 					<tr>
-						<th> Email </th>
+						<th> Last Name </th>
+						<td> <?php echo $_SESSION['nume'] ?> </td>
+					</tr>
+					<tr>
+						<th> E-mail </th>
 						<td> <?php echo $_SESSION['email'] ?> </td>
 					</tr>
 					<tr>
-						<th> Telefon </th>
+						<th> Phone number </th>
 						<td> <?php echo $_SESSION['tel'] ?> </td>
 					</tr>
 				</table>
 				<button class="small" id="edit" onclick="location.href='details_edit.php'" type="button"> Edit </button>
 
 				<div>
-					<button id="logout" class="small" onclick="location.href='logout.php'" type="button"> Logout
-					</button>
+					<button id="logout" class="small" onclick="location.href='logout.php'" type="button"> Logout </button>
+				</div>
+
+				<div>
+					<button id="logout" class="small" onclick="location.href='deleteAccount.php'" type="button"> Delete Account </button>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<?php include('../Elem_site/footer.php'); ?>

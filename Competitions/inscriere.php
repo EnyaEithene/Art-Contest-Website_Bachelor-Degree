@@ -7,60 +7,56 @@ include("../PHP_Scripts/db_connect.php");
 <html>
 
 <head>
-    <title> titlu pagina </title>
+    <title> Sign up </title>
     <link rel="stylesheet" href="../websiteStyle.css">
 </head>
 
 <body>
-    <div class="page-container">
-        <div class="content-wrap">
-            <?php include('../Elem_site/menu.php'); ?>
+    <?php include('../Elem_site/menu.php'); ?>
 
-            <?php include('../Elem_site/logo.php'); ?>
+    <?php include('../Elem_site/logo.php'); ?>
 
-            <div id="row">
-                <div id="column">
-                    <div>
-                        <h1> </h1>
-                    </div>
+    <div class="page_stack">
+        <div id="row">
+            <div id="column">
+                <!-- Continut pagina -->
+                <?php
+                // Preluare id competitie
+                $ID_contest = $_GET['id'];
 
-                    <!-- Continut pagina -->
-                    <?php
-                    // Preluare id competitie
-                    $ID_contest = $_GET['id'];
+                // Stergere participare anterioara pentru cazul in care isi schimba desenul
+                $delete = $db->query('delete from participari where ID_competitie = '. $ID_contest .' and ID_participant = "'. $_SESSION['ID'] .'";');
 
-                    // Preluare date din formular
-                    foreach ($_POST['img'] as $img) {
-                        // Instructiune SQL pentru a incarca participarea in BD
-                        $query = 'insert into participari 
-                                    (ID_competitie,ID_participant,ID_Imagine) 
-                                    values 
-                                    (' . $ID_contest . ',"' . $_SESSION['ID'] . '",' . $img . ')';
+                // Preluare date din formular
+                foreach ($_POST['img'] as $img) {
+                     // Instructiune SQL pentru a incarca participarea in BD
+                    $query = 'insert into participari 
+                                (ID_competitie,ID_participant,ID_Imagine) 
+                                values 
+                                (' . $ID_contest . ',"' . $_SESSION['ID'] . '",' . $img . ')';
 
-                        $insert = $db->query($query);
+                    $insert = $db->query($query);
 
-                        if ($insert) {
-                            echo '<div> 
-                                    Desenul a fost inscris cu succes! <br>
+                    if ($insert) {
+                        echo '<div> 
+                                 Your drawing was succesfully signed up <br>
+                                 Return to the <a id="link" href="../Main_pages/competitions.php">competitions page</a>.
+                            </div>';
+                    } else {
+                        echo '<div id="row">
+                                 <p id="column" style="color:#cf3266;text-align:center">
+                                       <strong>Erorr:</strong> Nu a putut fi inscris desenul. Incercati din nou mai tarziu.
                                     Reveniti la <a id="link" href="../Main_pages/competitions.php">competitii</a>.
-                                </div>';
-                        } else {
-                            echo '<div id="row">
-                                    <p id="column" style="color:#cf3266;text-align:center">
-                                        <strong>Eroare:</strong> Nu a putut fi inscris desenul. Incercati din nou mai tarziu.
-                                        Reveniti la <a id="link" href="../Main_pages/competitions.php">competitii</a>.
-                                    </p>
-                                </div>';
-                        }
-                    }
-                    ?>
+                                </p>
+                             </div>';
+                     }
+                 }
+                 ?>
 
-                </div>
             </div>
-
         </div>
-        <?php include("../Elem_site/footer.php"); ?>
     </div>
+    <?php include("../Elem_site/footer.php"); ?>
 </body>
 
 </html>

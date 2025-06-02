@@ -4,7 +4,7 @@
 if (mysqli_connect_errno()) {
     echo '<div id="row">
 						<p id="column" style="color:#cf3266;">
-							Eroare: Conexiunea la serverul mysql nu s-a facut. Incercati mai tarziu.
+							<strong>Erorr:</strong> Was not able to connect to server. Try again later.
 						</p>
 					</div>';
     exit;

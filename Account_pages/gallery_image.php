@@ -19,7 +19,7 @@ if (mysqli_num_rows($take) > 0) {
 } else {
     echo '<div id="row">
 			<p id="column" style="color:#cf3266;text-align:center">
-				<strong>Eroare:</strong> Nu s-au putut incarca datele imaginii.
+				<strong>Erorr:</strong> Could not load image data.
 			</p>			
         </div>';
 }
@@ -38,31 +38,46 @@ if (mysqli_num_rows($take) > 0) {
 
     <?php include('../Elem_site/logo.php'); ?>
 
-    <div id="row">
-        <?php
-        echo '<img id="left" src="../Images/uploaded_img/' . stripslashes($_SESSION['ID']) . '_imagine_' . stripslashes($idImagine) . '.jpeg">
-                <p id="column">
-                    <table style="font-size:1.5vw">
-					<tr>
-						<th style="font-size:3vw"> ' . $titlu . ' </th>
-					</tr>
-					<tr>
-						<th> Descriere </th>
-						<td> ' . $descriere . ' </td>
-					</tr>
-					<tr>
-						<th> Marime </th>
-						<td> ' . $marime . '</td>
-					</tr>
-					<tr>
-						<th> Data incarcare </th>
-						<td> ' . $data_incarcare . ' </td>
-					</tr>
-				</table>
-                </p>';
-        ?>
+    <div id="page_stack">
+        <div id="row">
+            <?php
+            echo '<img id="left" src="../Images/uploaded_img/' . stripslashes($_SESSION['ID']) . '_imagine_' . stripslashes($idImagine) . '.jpeg">
+                    <p id="column">
+                        <table style="font-size:1.5vw">
+                        <tr>
+                            <th style="font-size:3vw"> ' . $titlu . ' </th>
+                        </tr>
+                        <tr>
+                            <th> Description </th>
+                            <td> ' . $descriere . ' </td>
+                        </tr>
+                        <!--
+                        <tr>
+                            <th> Size </th>
+                            <td> ' . $marime . '</td>
+                        </tr>
+                        -->
+                        <tr>
+                            <th> Upload date </th>
+                            <td> ' . $data_incarcare . ' </td>
+                        </tr>
+                    </table>
+                    </p>';
+            ?>
+        </div>
+        <div id="row">
+            <?php
+            echo '<button id="purple" class="small" type="button"><a href="gallery.php"> Go back to Gallery </a></button>
+                    <div id="form_stack">
+                    <form action="deleteImage.php" method="POST">
+                        <input type="hidden" name="id_img" value="'.$idImagine.'"> 
+                        <button id="logout" class="small" type="submit"> Delete Image </button>
+                    </form>
+                </div>';
+            ?>
+        </div>
     </div>
-
+    <?php include("../Elem_site/footer.php"); ?>
 </body>
 
 </html>

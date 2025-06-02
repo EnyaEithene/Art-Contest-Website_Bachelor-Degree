@@ -1,5 +1,12 @@
 <?php
 session_start();
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -11,26 +18,25 @@ session_start();
 </head>
 
 <body>
-	<div class="page-container">
-		<div class="content-wrap">
-			<?php include('../Elem_site/menu.php'); ?>
+	<?php include('../Elem_site/menu.php'); ?>
 
-			<?php include('../Elem_site/logo.php'); ?>
+	<?php include('../Elem_site/logo.php'); ?>
 
-			<div id="row">
-				<div id="column">
-					<div>
-						<h1> Titlu pagina </h1>
-					</div>
-
-					<!-- Continut pagina -->
-
+	<div class="page_stack">
+		<div id="row">
+			<div id="column">
+				<div>
+					<h1> Titlu pagina </h1>
 				</div>
-			</div>
 
+				<!-- Continut pagina -->
+
+			</div>
 		</div>
-		<?php include("../Elem_site/footer.php"); ?>
+
 	</div>
+	
+	<?php include("../Elem_site/footer.php"); ?>
 </body>
 
 </html>
