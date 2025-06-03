@@ -107,7 +107,7 @@ $col = $check->fetch_assoc();
                          </div>';
 
 
-                    $query = 'select * from participari where ID_competitie ='. $ID;
+                    $query = 'select * from participari where ID_competitie ='. $ID .' order by Nota_finala desc;';
                     $take = $db->query($query);
                     $num_rows = $take->num_rows;
 
@@ -148,12 +148,32 @@ $col = $check->fetch_assoc();
                                                 <th> Description </th>
                                                 <td> ' . $dataRow['descriere'] . ' </td>
                                         </tr>';
+                                    // Afisare nota dupa o saptamana de la incheierea competitiei
+                                    if(ceil((strtotime($row['final'])-time())/60/60/24) <= 0)
+                                    {
+                                      // Preluare medie aritmetica a notelor
+                                      $getAverageQuery = 'select p.ID as ID, avg(nc.Nota) as Medie from note_competitii as nc
+                                                          join participari as p 
+                                                          on  nc.ID_participare = p.ID
+                                                          where p.ID_participant = "'. $part['ID_participant'] .'";';
+                                      $getAverage = $db->query($getAverageQuery);
+                                      $average = $getAverage->fetch_assoc();
+                                      
+                                      // Stocare a notei finale in tabelul de participari
+                                      $finalgradeQuery = 'update participari set Nota_finala = '. $average['Medie'] .'where ID = '. $average['ID'] .';';
+                                    }
                                     if(strtotime($row['final']) <= time()) 
                                     {
                                         echo '<tr>
                                                   <th> Final Grade </th>
-                                                  <td> </td>
-                                              </tr>';
+                                                  <td>';
+                                      echo '<div class="rating">';
+                                      for ($i = 5; $i >= 1; $i--) {
+                                          $checked = ($average['Medie'] == $i) ? 'checked' : '';
+                                          echo '<input class="star" id="rating" type="radio" name="rating" value="' . $i . '" ' . $checked . ' disabled>
+                                                <label for="rating"></label>';
+                                      }
+                                      echo '</div></td></tr>';
                                     }
                                     echo '</table>
                                         </p>

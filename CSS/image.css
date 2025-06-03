@@ -19,7 +19,7 @@ img.gallery {
 
 #left {
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   margin-left: 20px;
 }
 
