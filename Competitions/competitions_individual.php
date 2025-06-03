@@ -170,7 +170,7 @@ $col = $check->fetch_assoc();
                                       echo '<div class="rating">';
                                       for ($i = 5; $i >= 1; $i--) {
                                           $checked = ($average['Medie'] == $i) ? 'checked' : '';
-                                          echo '<input class="star" id="rating" type="radio" name="rating" value="' . $i . '" ' . $checked . ' disabled>
+                                          echo '<input class="star" id="rating-'. $average['ID'] .'" type="radio" name="rating-'. $average['ID'] .'" value="' . $i . '" ' . $checked . ' disabled>
                                                 <label for="rating"></label>';
                                       }
                                       echo '</div></td></tr>';
@@ -186,45 +186,44 @@ $col = $check->fetch_assoc();
                                     <div id="row">
                                         <img id="left" src="../Images/uploaded_img/' . $row['ID_participant'] . '_imagine_' . $row['ID_imagine'] . '.jpeg"><br><br>
                                         <div id="column">
-                                            <form method="POST" action="save_rating.php">
-                                                <input type="hidden" name="ID_participare" value="' . $row['ID'] . '">
+                                            <form method="POST" action="save_rating.php?id='. $row['ID'] .'">
                                                 <input type="hidden" name="ID_jurat" value="' . $_SESSION['ID'] . '">
                                                 <input type="hidden" name="ID_competitie" value="' . $ID . '">
 
-                                                New grade:
+                                                <div>New grade:</div>
 
                                                 <div class="rating">
-                                                    <input class="star" id="rating5" type="radio" name="rating[]" value="5" onchange="this.form.submit();">
-                                                    <label for="rating5"></label>
+                                                    <input class="star" id="rating5-'. $row['ID'] .'" type="radio" name="rating-'. $row['ID'] .'[]" value="5" onchange="this.form.submit();">
+                                                    <label for="rating5-'. $row['ID'] .'"></label>
 
-                                                    <input class="star" id="rating4" type="radio" name="rating[]" value="4" onchange="this.form.submit();">
-                                                    <label for="rating4"></label>
+                                                    <input class="star" id="rating4-'. $row['ID'] .'" type="radio" name="rating-'. $row['ID'] .'[]" value="4" onchange="this.form.submit();">
+                                                    <label for="rating4-'. $row['ID'] .'"></label>
 
-                                                    <input class="star" id="rating3" type="radio" name="rating[]" value="3" onchange="this.form.submit();">
-                                                    <label for="rating3"></label>
+                                                    <input class="star" id="rating3-'. $row['ID'] .'" type="radio" name="rating-'. $row['ID'] .'[]" value="3" onchange="this.form.submit();">
+                                                    <label for="rating3-'. $row['ID'] .'"></label>
 
-                                                    <input class="star" id="rating2" type="radio" name="rating[]" value="2" onchange="this.form.submit();">
-                                                    <label for="rating2"></label>
+                                                    <input class="star" id="rating2-'. $row['ID'] .'" type="radio" name="rating-'. $row['ID'] .'[]" value="2" onchange="this.form.submit();">
+                                                    <label for="rating2-'. $row['ID'] .'"></label>
 
-                                                    <input class="star" id="rating1" type="radio" name="rating[]" value="1" onchange="this.form.submit();">
-                                                    <label for="rating1"></label>
+                                                    <input class="star" id="rating1-'. $row['ID'] .'" type="radio" name="rating-'. $row['ID'] .'[]" value="1" onchange="this.form.submit();">
+                                                    <label for="rating1-'. $row['ID'] .'"></label>
                                                 </div>
                                             </form><br><br><br>
                                         ';
 
-                                    $sql = "SELECT Nota FROM note_competitii WHERE ID_jurat = '".$_SESSION['ID']."' AND ID_participare = ".$row['ID'];
+                                    $sql = "SELECT ID_participare,Nota FROM note_competitii WHERE ID_jurat = '".$_SESSION['ID']."' AND ID_participare = ".$row['ID'];
                                     $res = $db->query($sql);
                                     $current_rating = null;
                                     if ($res && $rating_row = $res->fetch_assoc()) {
                                         $current_rating = $rating_row['Nota'];
                                     }
                             
-                                    echo 'Current grade: 
+                                    echo '<div>Current grade:</div> 
                                             <div class="rating">';
                                     for ($i = 5; $i >= 1; $i--) {
                                         $checked = ($current_rating == $i) ? 'checked' : '';
-                                        echo '<input class="star" id="rating' . $i . '_' . $id_participare . '" type="radio" name="rating_' . $id_participare . '" value="' . $i . '" ' . $checked . ' disabled>
-                                              <label for="rating' . $i . '_' . $id_participare . '"></label>';
+                                        echo '<input class="star" id="rating'. $i .'" type="radio" name="rating-'. $row['ID'] .'[]" value="' . $i . '" ' . $checked . ' disabled>
+                                              <label for="rating"></label>';
                                     }
                                     echo '</div></div></div>';
                                 }
