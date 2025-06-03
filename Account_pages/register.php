@@ -9,7 +9,6 @@
 <i>
 	<?php include('../Elem_site/logo.php'); ?>
 
-	<div id="page_stack">
 	<?php
 
 	// Datele din formular
@@ -22,10 +21,12 @@
 
 	// Verificare ca toate datele obligatorii au fost completate
 	if (!$nume || !$prenume || !$email || !$pass || !$confirmPass) {
-		echo ' <div> 
-				You did not fill in all the required fields.
-			</div>';
-		exit;
+		echo '<div id="row">
+			    	<p id="column" style="color:#cf3266;text-align:center">
+				      <strong>Error:</strong> You did not fill in all the required fields.
+			      </p>
+			    </div>';		
+    exit;
 	}
 
 	// Conectare la baza de date
@@ -47,19 +48,26 @@
 	// Rulare $query -> incarcare date formular
 	$result = $db->query($query);
 	if ($result) {
-		echo '<div id="row">
-				<img id="left" src="../Images/website_img/welcome.jpeg">
-				<p id="column" style="color:#cf3266;">
-					Congratulations! You are now registered as a contestant. <br><br>
-					Please login: <button id="purple" class="small"><a href="login_page.php">Log into account</a></button>
-				</p>
-			</div>';
-	}
+  echo '<div id="page_stack">
+          <div id="row">
+				    <img id="left" src="../Images/website_img/welcome.jpeg">
+				    <p id="column" style="color:#cf3266;">
+					    Congratulations! You are now registered as a contestant. <br><br>
+					    Please login: <button id="purple" class="small"><a href="login_page.php">Log into account</a></button>
+				    </p>
+			    </div>
+        </div>';
+  } else {
+  echo '<div id="row">
+              <p id="column" style="color:#cf3266;text-align:center">
+                <strong>Error:</strong> Something went wrong. Please try again later. 
+              </p>
+            </div>';		
+  }
 	$db->close();
 	?>
 
 	<?php include('../Elem_site/menu.php'); ?>
-	</div>
 	<?php include('../Elem_site/footer.php'); ?>
 </body>
 

@@ -14,8 +14,6 @@ header("Expires: 0");
 </head>
 
 <body>
-	<div class="page-container">
-		<div class="content-wrap">
 			<!-- Bara de navigare -->
 			<nav class="navbar">
 				<ul class="navbar-list">
@@ -79,6 +77,7 @@ header("Expires: 0");
 				</ul>
 			</nav>
 
+	<div id="page_stack">
 			<!-- Logo -->
 			<div class="home">
 				<h1 id="logo"><a href="index.php"> ArtDraft </a></h1>
@@ -100,7 +99,6 @@ header("Expires: 0");
 				<img id="right" src="Images/website_img/cat.jpg">
 			</div>
 		</div>
-	</div>
 	<?php include('Elem_site/footer.php'); ?>
 </body>
 

@@ -26,68 +26,69 @@ error_reporting(E_ALL);
 
 	<?php include('../Elem_site/user_side_menu.php'); ?>
 
-	<div class="main">
-		<div id="row">
-			<div id="column">
-				<div>
-					<h1> Gallery </h1>
-				</div>
+	<div id="page_stack">
+    <div class="main">
+      <div id="row">
+        <div id="column">
+          <div>
+            <h1> Gallery </h1>
+          </div>
 
-				<fieldset>
-					<legend>Upload art</legend>
-					<form action="upload.php" method="post" enctype="multipart/form-data">
-						<input type="file" name="fisier" id="fisier">
+          <fieldset>
+            <legend>Upload art</legend>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+              <input type="file" name="fisier" id="fisier">
 
-						<div class="form-group">
-							<label for="titlu"> Title </label>
-							<input type="text" name="titlu">
-							<span>*</span>
-						</div>
+              <div class="form-group">
+                <label for="titlu"> Title </label>
+                <input type="text" name="titlu">
+                <span>*</span>
+              </div>
 
-						<div class="form-group">
-							<label for="desc"> Description </label>
-							<textarea name="desc" rows="4" cols="50"></textarea>
-						</div>
+              <div class="form-group">
+                <label for="desc"> Description </label>
+                <textarea name="desc" rows="4" cols="50"></textarea>
+              </div>
 
-						<p><span>* required field</span></p>
-						<button id="upload" class="small" type="submit"> Upload </button>
-					</form>
-				</fieldset> <br>
+              <p><span>* required field</span></p>
+              <button id="upload" class="small" type="submit"> Upload </button>
+            </form>
+          </fieldset> <br>
 
-				<!--
-				<fieldset>
-					<legend> Aranjare galerie</legend>
-					<form action="gallery_edit.php" method="post">
+          <!--
+          <fieldset>
+            <legend> Aranjare galerie</legend>
+            <form action="gallery_edit.php" method="post">
 
-					</form>
-				</fieldset>
-				-->
+            </form>
+          </fieldset>
+          -->
 
-				<div>
-					<h1> Uploaded images </h1>
-					<?php
-					$sql = 'select * from arta_participanti where ID_participant="' . $_SESSION['ID'] . '";';
-					$result = $db->query($sql);
-					$num_results = $result->num_rows;
+          <div>
+            <h1> Uploaded images </h1>
+            <?php
+            $sql = 'select * from arta_participanti where ID_participant="' . $_SESSION['ID'] . '";';
+            $result = $db->query($sql);
+            $num_results = $result->num_rows;
 
-					if ($num_results != 0) {
-						for ($i = 0; $i < $num_results; $i++) {
-							$row = $result->fetch_assoc();
-							//echo ;
-							echo '<a href="gallery_image.php?id=' . $row['ID'] . '">
-									<img class="gallery" src="../Images/uploaded_img/' . stripslashes($row['ID_participant']) . '_imagine_' . stripslashes($row['ID']) . '.jpeg"></img>
-								</a><br><br>';
-						}
-					} else {
-						echo "<div> You haven't uploaded any images yet </div>";
-					}
-					?>
-				</div>
+            if ($num_results != 0) {
+              for ($i = 0; $i < $num_results; $i++) {
+                $row = $result->fetch_assoc();
+                //echo ;
+                echo '<a href="gallery_image.php?id=' . $row['ID'] . '">
+                    <img class="gallery" src="../Images/uploaded_img/' . stripslashes($row['ID_participant']) . '_imagine_' . stripslashes($row['ID']) . '.jpeg"></img>
+                  </a><br><br>';
+              }
+            } else {
+              echo "<div> You haven't uploaded any images yet </div>";
+            }
+            ?>
+          </div>
 
-			</div>
-		</div>
-	</div>
-
+        </div>
+      </div>
+    </div>
+  </div>
 	<?php include('../Elem_site/footer.php'); ?>
 
 </body>

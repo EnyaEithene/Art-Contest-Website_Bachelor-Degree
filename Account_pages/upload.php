@@ -18,12 +18,11 @@ header("Expires: 0");
 </head>
 
 <body>
-	<div class="page-container">
-		<div class="content-wrap">
-			<?php include('../Elem_site/menu.php'); ?>
 
-			<?php include('../Elem_site/logo.php'); ?>
+  <?php include('../Elem_site/menu.php'); ?>
+  <?php include('../Elem_site/logo.php'); ?>
 
+  <div class="page-stack">
 			<div id="row">
 				<div id="column">
 					<div>
@@ -82,7 +81,7 @@ header("Expires: 0");
 								// echo "nu e fisier imagine.";
 								echo '<div id="row">
 										<p id="column" style="color:#cf3266;">
-											<strong>Erorr:</strong> File is not an image.
+											<strong>Error:</strong> File is not an image.
 										</p>
 									</div>';
 								$uploadOk = 0;
@@ -94,7 +93,7 @@ header("Expires: 0");
 							// echo "se incarca numai fisiere tip jpeg.";
 							echo '<div id="row">
 										<p id="column" style="color:#cf3266;">
-											<strong>Erorr:</strong> Only images of .jpeg format are accepted, as specified on <a href="../Main_pages/info.php"> Informations</a>.
+											<strong>Error:</strong> Only images of .jpeg format are accepted, as specified on <a href="../Main_pages/info.php"> Informations</a>.
 										</p>
 									</div>';
 							$uploadOk = 0;
@@ -135,18 +134,14 @@ header("Expires: 0");
 							// echo "Fisierul nu a fost incarcat";
 							echo '<div id="row">
 										<p id="column" style="color:#cf3266;">
-											<strong>Erorr:</strong> File was not uploaded. Try again later.
+											<strong>Error:</strong> File was not uploaded. Try again later.
 										</p>
 									</div>';
 							$_SESSION['count'] = $_SESSION['count'] - $_SESSION['add'];
 						}
 					}
 					?>
-
-
 				</div>
-			</div>
-
 		</div>
 		<?php include("../Elem_site/footer.php"); ?>
 	</div>

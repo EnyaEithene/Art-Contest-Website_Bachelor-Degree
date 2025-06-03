@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 include("../PHP_Scripts/db_connect.php");
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $participare = $_POST['ID_participare'];
+    $participare = $_GET['id'];
     $jurat = $_POST['ID_jurat'];
     $competitie = $_POST['ID_competitie'];
 
@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $num = $select->num_rows;
     
     if($num == 0){       // Nu exista nicio alta nota => adaugam nota in tabel
-        foreach($_POST['rating'] as $nota){
+        foreach($_POST['rating-'. $participare] as $nota){
             $queryIn = 'insert into note_competitii
                         (ID_jurat, ID_participare, Nota) 
                         values 
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
         }
      } else {           // Exista o nota => modificam nota initiala
-        foreach($_POST['rating'] as $nota){
+        foreach($_POST['rating-'. $participare] as $nota){
             $queryUp = 'update note_competitii
                         set Nota = ' . $nota . ' 
                         where ID_jurat = "'. $jurat . '" 
@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $update = $db->query($queryUp);
 
             if($update){
-                header("Location: competitions_individual.php?id=". $competitie);
+              header("Location: competitions_individual.php?id=". $competitie);
             }
         }
      }

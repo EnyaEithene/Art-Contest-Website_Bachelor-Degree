@@ -20,20 +20,6 @@ div#inline-div {
   padding: 20px;
 }
 
-#page_stack {
-  height: auto;
-  width: 100%;
-  font-size: 30px;
-
-  position: relative;
-  left: 25%;
-  margin-top: -10px;
-  margin-left: -450px;
-  text-align: center;
-  flex: 1;
-  padding: 20px;
-}
-
 /* Formulare - casute */
 
 .form-group {
