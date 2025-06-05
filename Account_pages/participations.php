@@ -35,14 +35,11 @@
                                 DATE_FORMAT(data_inceput,"%d.%m.%Y") AS inceput, 
                                 DATE_FORMAT(data_final,"%d.%m.%Y") as final 
                               from competitii 
-                              where ID='. $col['ID_competitie'].'
-                              order by data_inceput desc;';
+                              where ID='. $col['ID_competitie'].';';
 										$part = $db->query($query1);
                     $row = $part->fetch_assoc();
-
-                    $notaFinala = is_null($col['Nota_finala']) ? "To Be Added" : $col['Nota_finala'];
-      
-										echo '<a href="../Competitions/competitions_individual.php?id=' . $row['ID'] . '">
+                    // Afisare competitie
+                    echo '<a href="../Competitions/competitions_individual.php?id=' . $row['ID'] . '">
 															<div class="competition">
 																<div class="object">
 																	<h3> ' . $row['nume'] . ' </h3>
