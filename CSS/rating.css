@@ -36,3 +36,4 @@
 .rating > input:checked ~ label:hover ~ label {
   color: #fece31;
 }
+

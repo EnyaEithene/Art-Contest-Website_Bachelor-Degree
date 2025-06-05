@@ -77,13 +77,13 @@ header("Expires: 0");
 				</ul>
 			</nav>
 
-	<div id="page_stack">
-			<!-- Logo -->
+      <!-- Logo -->
 			<div class="home">
 				<h1 id="logo"><a href="index.php"> ArtDraft </a></h1>
 				<h3 id="subtitle"> The place where artists compete </h3>
 			</div>
 
+	<div id="page_stack">
 			<!-- Continut pagina -->
 			<div id="row">
 				<img id="left" src="Images/website_img/Unicorn.jpg">
