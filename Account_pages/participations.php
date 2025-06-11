@@ -64,7 +64,6 @@
                             </tr>
                           </table></p>
                               </div>';
-                    echo '';
 										echo '</div>
 														</a><br>';
 										}

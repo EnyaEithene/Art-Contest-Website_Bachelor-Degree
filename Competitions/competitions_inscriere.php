@@ -33,7 +33,7 @@ $row = $result->fetch_assoc();
                     </div>
 
                     <!-- Continut pagina -->
-                    <div id="form_stack"></div>
+                    <div id="form_stack">
                         <form action="inscriere.php?id=<?php echo $ID; ?>" method="POST">
                             <?php
                                 include("show_images.php");
@@ -43,9 +43,9 @@ $row = $result->fetch_assoc();
                         <?php
                         echo '<button id="purple" class="small" type="button"><a href="competitions_individual.php?id=' . $ID . '">Return to the competition</a></button>';
                         ?>
+                    </div>
                 </div>
             </div>
-
     </div>
     <?php include("../Elem_site/footer.php"); ?>
 </body>

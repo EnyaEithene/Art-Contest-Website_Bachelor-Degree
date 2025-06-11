@@ -74,7 +74,7 @@ header("Expires: 0");
 							// Determinare dimensiuni fisier imagine
 							$check = getimagesize($_FILES["fisier"]["tmp_name"]);
 							if ($check !== false) {
-								echo "este fisier imagine - " . $check["mime"] . ".";
+								// echo "este fisier imagine - " . $check["mime"] . ".";
 								$mime = $check["mime"];
 								$uploadOk = 1;
 							} else {
@@ -101,7 +101,7 @@ header("Expires: 0");
 
 						if ($uploadOk == 1) {
 							// Stocare locatie fisier si date valide in tabelul "arta_participanti"
-							$new_name = '1';
+							// $new_name = '1';
 							//echo "test";
 							echo $mime;
 							$query = "insert into arta_participanti(id_participant,titlu,descriere,marime) values 
